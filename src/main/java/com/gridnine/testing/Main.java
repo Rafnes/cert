@@ -19,14 +19,14 @@ public class Main {
         //Фильтр для сегментов, где дата прилета раньше даты вылета
         FlightFilterService arrivalBeforeDepartureFilterService = new FlightFilterService(List.of(new ArrivalBeforeDepartureFilter()));
         System.out.println("Полеты без сегментов, где дата прилета раньше даты вылета:");
-        filteredFlights = arrivalBeforeDepartureFilterService.filterFlights(filteredFlights);
-        filteredFlights.forEach(System.out::println);
+        List<Flight> filteredFlights2 = arrivalBeforeDepartureFilterService.filterFlights(flights);
+        filteredFlights2.forEach(System.out::println);
         System.out.println();
 
         //Фильтр для полетов с временем на земле меньше 2 часов
         FlightFilterService groundTimeFilterService = new FlightFilterService(List.of(new GroundTimeExceedsTwoHoursFilter()));
         System.out.println("Полеты с временем на земле менее 2 часов:");
-        filteredFlights = groundTimeFilterService.filterFlights(filteredFlights);
-        filteredFlights.forEach(System.out::println);
+        List<Flight> filteredFlights3 = groundTimeFilterService.filterFlights(flights);
+        filteredFlights3.forEach(System.out::println);
     }
 }
